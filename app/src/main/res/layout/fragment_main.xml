@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_home"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_option"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_height"
-        android:background="@color/color_primary"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="@dimen/dp_50"
+        app:tabBackground="@drawable/tab_color_selector"
+        app:tabSelectedTextColor="@color/color_White"
+        app:tabTextColor="@color/color_Grey"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabTextColor="@color/color_white"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager_option"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/color_black2"
+        app:layout_constraintTop_toBottomOf="@id/tab_option"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_option">
+        app:layout_constraintStart_toStartOf="parent">
 
     </android.support.v4.view.ViewPager>
 </android.support.constraint.ConstraintLayout>
