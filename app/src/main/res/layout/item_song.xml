@@ -3,75 +3,115 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="@dimen/dp_150"
+    android:background="@color/color_black2">
 
     <ImageView
         android:id="@+id/image_song"
-        android:layout_width="@dimen/dp_70"
-        android:layout_height="@dimen/dp_70"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:layout_marginStart="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_8"
-        android:background="@color/color_material_purple_600"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_25"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/view_onlineView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_song_name"
-        android:layout_width="@dimen/dp_0"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_16"
-        android:text="@string/example_songname"
-        android:textSize="@dimen/sp_20"
-        android:singleLine="true"
-        android:scrollHorizontally="true"
-        android:ellipsize="end"
-        app:layout_constraintEnd_toStartOf="@+id/button_download"
-        app:layout_constraintStart_toEndOf="@+id/image_song"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_1"
+        android:background="@color/color_blur_black"
+        android:paddingStart="@dimen/dp_5"
+        android:paddingEnd="@dimen/dp_5"
+        android:text="@string/title_Songname"
+        android:textColor="@color/color_White"
+        app:layout_constraintBottom_toTopOf="@id/text_artist"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/text_artist"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="@dimen/dp_8"
-        android:text="@string/example_artist"
-        app:layout_constraintEnd_toStartOf="@+id/button_download"
-        app:layout_constraintStart_toEndOf="@+id/image_song"
-        app:layout_constraintTop_toBottomOf="@+id/text_song_name" />
-
-    <TextView
-        android:id="@+id/text_like_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/example_like"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/text_artist" />
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_1"
+        android:background="@color/color_blur_black"
+        android:paddingStart="@dimen/dp_5"
+        android:paddingEnd="@dimen/dp_5"
+        android:text="@string/title_Artist"
+        android:textColor="@color/color_White"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/image_song"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view_onlineView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_playOnline"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_marginStart="@dimen/dp_5"
+        android:background="@drawable/ic_play_arrow_white_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_onlineView" />
+
+    <TextView
+        android:id="@+id/text_playingOnline"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_25"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="@dimen/dp_5"
+        android:text="@string/title_nowPlaying"
+        android:textColor="@color/color_White"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_playOnline"
+        app:layout_constraintTop_toBottomOf="@+id/image_song" />
 
     <ImageButton
         android:id="@+id/button_download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:layout_marginEnd="@dimen/dp_8"
-        android:layout_marginTop="@dimen/dp_8"
-        android:background="@drawable/ic_if_download2_172461"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:background="@drawable/ic_cloud_download_white_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/view_onlineView" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/ic_if_like_1214979"
-        app:layout_constraintStart_toEndOf="@+id/image_song"
-        app:layout_constraintTop_toBottomOf="@+id/text_artist" />
+    <TextView
+        android:id="@+id/text_like_count"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_25"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="@dimen/dp_5"
+        android:text="3000"
+        android:textColor="@color/color_White"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_download"
+        app:layout_constraintTop_toBottomOf="@+id/image_song" />
+
+    <ImageButton
+        android:id="@+id/button_likeOnlineSong"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:background="@drawable/ic_favorite_white_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/text_like_count"
+        app:layout_constraintTop_toBottomOf="@id/view_onlineView" />
 
 </android.support.constraint.ConstraintLayout>

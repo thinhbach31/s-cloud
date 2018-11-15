@@ -29,4 +29,9 @@
     <string name="message_finding_tracks">Finding...</string>
     <string name="message_download_error">Can not download this song!</string>
     <string name="message_downloading">Downloading</string>
+    <string name="title_Songname">Song name</string>
+    <string name="title_Artist">Artist</string>
+    <string name="title_online_liked">Online track liked</string>
+    <string name="title_offline_liked">Offline track liked</string>
+    <string name="title_nowPlaying">Now playing</string>
 </resources>

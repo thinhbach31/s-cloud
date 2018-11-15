@@ -33,10 +33,11 @@ import com.example.admin.scloud.screen.search.SearchFragment;
 import com.example.admin.scloud.service.MusicService;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View, View.OnClickListener,
-        SearchView.OnQueryTextListener, TabLayout.OnTabSelectedListener, TrackListener, MusicService.OnMusicChangeListener {
+        SearchView.OnQueryTextListener, TabLayout.OnTabSelectedListener, TrackListener,
+        MusicService.OnMusicChangeListener {
 
     private TextView mTextTitle;
-    private ImageButton mButtonChangeState;
+    private ImageButton mButtonPlayPause;
 
     private ConstraintLayout mLayoutPlaying;
     private FrameLayout mFrameLayoutContainFragment;
@@ -108,21 +109,21 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         switch (view.getId()) {
 
             //click at playing layout
-            case R.id.constraint_playing:
+            case R.id.contrain_playing:
                 Intent intent = new Intent(this, MusicService.class);
                 startService(intent);
                 Intent intentPlaying = new Intent(this, PlayingActivity.class);
                 startActivity(intentPlaying);
                 break;
             //click at button play/pause
-            case R.id.button_main_change_state:
+            case R.id.button_mainPlayPause:
 
                 if (mMusicService.isPlaying()) {
                     mMusicService.pause();
-                    mButtonChangeState.setImageResource(R.drawable.ic_play_arrow_24dp);
+                    mButtonPlayPause.setImageResource(R.drawable.ic_play_arrow_24dp);
                 } else {
                     mMusicService.resume();
-                    mButtonChangeState.setImageResource(R.drawable.ic_pause_black_24dp);
+                    mButtonPlayPause.setImageResource(R.drawable.ic_pause_black_24dp);
                 }
                 break;
         }
@@ -138,12 +139,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void initViews() {
-        mLayoutPlaying = findViewById(R.id.constraint_playing);
-        mFrameLayoutContainFragment = findViewById(R.id.frame_fragment);
+        mLayoutPlaying = findViewById(R.id.contrain_playing);
+        mFrameLayoutContainFragment = findViewById(R.id.main_frame_layout);
         mLayoutPlaying.setOnClickListener(this);
         mProgressBar = findViewById(R.id.progress_loading);
-        mTextTitle = findViewById(R.id.text_local_song_name);
-        mButtonChangeState = findViewById(R.id.button_main_change_state);
+        mTextTitle = findViewById(R.id.text_mainSongName);
+        mButtonPlayPause = findViewById(R.id.button_mainPlayPause);
         mMainPresenter = new MainPresenter(this);
     }
 
@@ -212,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void openSearchFragment() {
         mSearchFragment = SearchFragment.newInstance();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.layout_main, mSearchFragment);
+        transaction.add(R.id.main_frame_layout, mSearchFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -247,13 +248,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void onMusicPlay() {
-        mButtonChangeState.setImageResource(R.drawable.ic_play_arrow_24dp);
+        mButtonPlayPause.setImageResource(R.drawable.ic_play_arrow_24dp);
 
     }
 
     @Override
     public void onMusicPause() {
-        mButtonChangeState.setImageResource(R.drawable.ic_pause_black_24dp);
+        mButtonPlayPause.setImageResource(R.drawable.ic_pause_black_24dp);
     }
 
     @Override
